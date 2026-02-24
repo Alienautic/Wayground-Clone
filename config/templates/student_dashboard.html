@@ -1,0 +1,19 @@
+{% extends 'base.html' %}
+{% block content %}
+
+<h1>Student Dashboard</h1>
+
+<h3>Available Quizzes:</h3>
+
+{% for quiz in quizzes %}
+<div class="card">
+    <h3>{{ quiz.title }}</h3>
+
+    <a href="{% url 'take_quiz' quiz.id %}" class="action-link">Take Quiz</a> |
+    <a href="{% url 'leaderboard' quiz.id %}" class="action-link">Leaderboard</a>
+</div>
+{% empty %}
+<p>No quizzes available.</p>
+{% endfor %}
+
+{% endblock %}

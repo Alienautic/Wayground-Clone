@@ -1,0 +1,18 @@
+{% extends 'base.html' %}
+{% block content %}
+
+<div class="card">
+    <h2>Delete Quiz</h2>
+
+    <p>Are you sure you want to delete "<strong>{{ quiz.title }}</strong>"?</p>
+
+    <form method="POST">
+        {% csrf_token %}
+        <button type="submit" class="btn danger-btn">Yes, Delete</button>
+    </form>
+
+    <br>
+    <a href="{% url 'dashboard' %}" class="action-link">Cancel</a>
+</div>
+
+{% endblock %}

@@ -1,0 +1,24 @@
+{% extends 'base.html' %}
+{% block content %}
+
+<h1>Teacher Dashboard</h1>
+
+<a href="{% url 'create_quiz' %}" class="btn">Create New Quiz</a>
+
+<h3>Your Quizzes:</h3>
+
+{% for quiz in quizzes %}
+<div class="card">
+    <h3>{{ quiz.title }}</h3>
+
+    <a href="{% url 'add_questions' quiz.id %}" class="action-link">Add Questions</a> |
+    <a href="{% url 'quiz_statistics' quiz.id %}" class="action-link">Statistics</a> |
+    <a href="{% url 'edit_quiz' quiz.id %}" class="action-link">Edit</a> |
+    <a href="{% url 'delete_quiz' quiz.id %}" class="action-link">Delete</a> |
+    <a href="{% url 'leaderboard' quiz.id %}" class="action-link">Leaderboard</a>
+</div>
+{% empty %}
+<p>No quizzes created yet.</p>
+{% endfor %}
+
+{% endblock %}

@@ -1,0 +1,15 @@
+{% extends 'base.html' %}
+{% block content %}
+
+<div class="card">
+    <h2>Statistics - {{ quiz.title }}</h2>
+
+    <p><strong>Total Attempts:</strong> {{ total_attempts }}</p>
+    <p><strong>Average Score:</strong> {{ stats.average }}</p>
+    <p><strong>Highest Score:</strong> {{ stats.highest }}</p>
+    <p><strong>Lowest Score:</strong> {{ stats.lowest }}</p>
+
+    <a href="{% url 'dashboard' %}" class="action-link">Back</a>
+</div>
+
+{% endblock %}

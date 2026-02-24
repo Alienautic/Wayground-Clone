@@ -1,0 +1,23 @@
+{% extends 'base.html' %}
+{% block content %}
+
+<div class="card">
+    <h2>Create Quiz</h2>
+
+    <form method="POST">
+        {% csrf_token %}
+
+        <label>Quiz Title:</label><br>
+        <input type="text" name="title" class="input-field"><br><br>
+
+        <label>Description:</label><br>
+        <textarea name="description" class="input-field"></textarea><br><br>
+
+        <button type="submit" class="btn">Create Quiz</button>
+    </form>
+
+    <br>
+    <a href="{% url 'dashboard' %}" class="action-link">Back to Dashboard</a>
+</div>
+
+{% endblock %}

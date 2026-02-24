@@ -1,0 +1,31 @@
+{% extends 'base.html' %}
+{% block content %}
+
+<div class="card">
+    <h2>Leaderboard - {{ quiz.title }}</h2>
+
+    <table class="styled-table">
+        <tr>
+            <th>Rank</th>
+            <th>Student</th>
+            <th>Score</th>
+        </tr>
+
+        {% for attempt in attempts %}
+        <tr>
+            <td>{{ forloop.counter }}</td>
+            <td>{{ attempt.student.username }}</td>
+            <td>{{ attempt.score }}</td>
+        </tr>
+        {% empty %}
+        <tr>
+            <td colspan="3">No attempts yet.</td>
+        </tr>
+        {% endfor %}
+    </table>
+
+    <br>
+    <a href="{% url 'dashboard' %}" class="action-link">Back</a>
+</div>
+
+{% endblock %}

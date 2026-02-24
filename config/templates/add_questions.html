@@ -1,0 +1,41 @@
+{% extends 'base.html' %}
+{% block content %}
+
+<div class="card">
+    <h2>Add Questions to: {{ quiz.title }}</h2>
+
+    <form method="POST">
+        {% csrf_token %}
+
+        <input type="text" name="text" placeholder="Question Text" class="input-field"><br><br>
+
+        <input type="text" name="option_a" placeholder="Option A" class="input-field"><br><br>
+        <input type="text" name="option_b" placeholder="Option B" class="input-field"><br><br>
+        <input type="text" name="option_c" placeholder="Option C" class="input-field"><br><br>
+        <input type="text" name="option_d" placeholder="Option D" class="input-field"><br><br>
+
+        <select name="correct_option" class="input-field">
+            <option value="A">Correct Option: A</option>
+            <option value="B">Correct Option: B</option>
+            <option value="C">Correct Option: C</option>
+            <option value="D">Correct Option: D</option>
+        </select><br><br>
+
+        <button type="submit" class="btn">Add Question</button>
+    </form>
+
+    <hr>
+
+    <h3>Questions Added</h3>
+
+    {% for q in questions %}
+        <p>{{ q.text }}</p>
+    {% empty %}
+        <p>No questions yet.</p>
+    {% endfor %}
+
+    <br>
+    <a href="{% url 'dashboard' %}" class="action-link">Finish</a>
+</div>
+
+{% endblock %}

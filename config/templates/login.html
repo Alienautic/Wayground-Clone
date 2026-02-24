@@ -1,0 +1,22 @@
+{% extends 'base.html' %}
+{% block content %}
+
+<div class="card auth-card">
+    <h2>Login</h2>
+
+    <form method="POST">
+        {% csrf_token %}
+        
+        <input type="text" name="username" placeholder="Username" class="input-field"><br><br>
+        <input type="password" name="password" placeholder="Password" class="input-field"><br><br>
+        
+        <button type="submit" class="btn">Login</button>
+    </form>
+
+    <p class="auth-link">
+        Don't have an account? 
+        <a href="{% url 'register' %}">Register</a>
+    </p>
+</div>
+
+{% endblock %}

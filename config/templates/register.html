@@ -1,0 +1,27 @@
+{% extends 'base.html' %}
+{% block content %}
+
+<div class="card auth-card">
+    <h2>Register</h2>
+
+    <form method="POST">
+        {% csrf_token %}
+        
+        <input type="text" name="username" placeholder="Username" class="input-field"><br><br>
+        <input type="password" name="password" placeholder="Password" class="input-field"><br><br>
+
+        <select name="role" class="input-field">
+            <option value="teacher">Teacher</option>
+            <option value="student">Student</option>
+        </select><br><br>
+
+        <button type="submit" class="btn">Register</button>
+    </form>
+
+    <p class="auth-link">
+        Already have an account? 
+        <a href="{% url 'login' %}">Login</a>
+    </p>
+</div>
+
+{% endblock %}
